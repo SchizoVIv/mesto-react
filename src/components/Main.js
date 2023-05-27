@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from 'react';
 import api from "../utils/api.js";
 import Card from './Card';
@@ -6,9 +5,9 @@ import pen from '../image/pen.svg'
 
 function Main(props) {
 
-  const[userName, setUserName ]=useState(false)
-  const[userDescription, setUserDescription]=useState(false)
-  const[userAvatar, setUserAvatar]=useState(false)
+  const[userName, setUserName ]=useState("")
+  const[userDescription, setUserDescription]=useState("")
+  const[userAvatar, setUserAvatar]=useState("")
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -19,20 +18,13 @@ function Main(props) {
         setUserDescription(res.about)
         setUserAvatar(res.avatar)
       })
+    api
+      .getCardsFromServer()
+      .then(cardsData => {
+        setCards(cardsData);
+      })
       .catch(err => {
-        console.error(`Error:${err} - ${err.statusText}`);
-      });
-    }, [userName, userDescription, userAvatar]);
-
-    useEffect(() => {
-      api
-        .getCardsFromServer()
-        .then(cardsData => {
-          setCards(cardsData);
-        })
-        .catch(err => {
-          console.error(`Возникла ошибка загрузки данных с сервера:${err} - ${err.statusText}`);
-        });
+        console.error(`Error:${err} - ${err.statusText}`)})
     }, []);
 
     return (

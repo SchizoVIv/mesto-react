@@ -12,13 +12,13 @@ function PopupWithForm(props) {
         <form
           className="popup__content"
           name={props.name}
-          id={props.id} 
+          id={props.id}
           noValidate>
           <fieldset className="popup__fieldset">
             {props.children}
             <button
               className="popup__save-button"
-              type="submit">{props.btnName}</button>
+              type="submit">{props.btnName || 'Сохранить'}</button>
           </fieldset>
         </form>
       </div>
