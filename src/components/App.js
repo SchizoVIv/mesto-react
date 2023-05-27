@@ -51,7 +51,6 @@ function App() {
           name="profile"
           title="Редактировать профиль"
           id="popapContentProfile"
-          btnName="Сохранить"
           close={closeAllPopups}
           isOpen={isEditProfilePopupOpen}
           >
@@ -109,7 +108,6 @@ function App() {
           name="edit-avatar"
           title="Обновить аватар"
           id="popapAvatar"
-          btnName="Сохранить"
           close={closeAllPopups}
           isOpen={isEditAvatarPopupOpen}
 
