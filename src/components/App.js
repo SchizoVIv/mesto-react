@@ -130,7 +130,6 @@ function App() {
           id="popapQuestion"
           btnName="Да"
           close={closeAllPopups}
-          isOpen={isEditAvatarPopupOpen}
           ></PopupWithForm>
         <ImagePopup
           onClose={closeAllPopups}
