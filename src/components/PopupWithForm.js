@@ -7,7 +7,7 @@ function PopupWithForm(props) {
           className={`popup__close-button popup__close-button_${props.name} button-hover`}
           type="button"
           aria-label="Закрыть попап"
-          onClick={props.close}/>
+          onClick={props.close} />
         <h2 className="popup__title">{props.title}</h2>
         <form
           className="popup__content"
@@ -20,7 +20,7 @@ function PopupWithForm(props) {
             <button
               className="popup__save-button"
               type="submit"
-              >{props.btnName}</button>
+            >{props.btnName}</button>
           </fieldset>
         </form>
       </div>

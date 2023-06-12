@@ -17,7 +17,7 @@ export default function Card(props) {
     props.onCardLike(props.card, isLiked);
   }
 
-  function handleDeleteClick(){
+  function handleDeleteClick() {
     props.onCardDelete(props.card);
     props.onConfirmation(true)
   }
@@ -27,22 +27,21 @@ export default function Card(props) {
       className="element"
       key={props.card._id}
       data-card-id={props.card._id}
-      >
+    >
       <div name="elementCard" action="">
         <img
           className="element__image"
           src={props.card.link}
           alt={props.card.name}
           onClick={handleClick}
-          />
+        />
         {isOwn &&
           <button
-          className="element__delete-button button-hover"
-          type="button"
-          aria-label="Удалить карточку"
-          onClick={handleDeleteClick}
-          // onClick={props.onConfirmation}
-        />}
+            className="element__delete-button button-hover"
+            type="button"
+            aria-label="Удалить карточку"
+            onClick={handleDeleteClick}
+          />}
         <div className="element__text">
           <h2 className="element__title">{props.card.name}</h2>
           <div className="element__like-container">
@@ -52,7 +51,7 @@ export default function Card(props) {
               aria-label="Лайк"
               onClick={handleLikeClick}
             />
-            <span className="element__like-count" />{props.card.likes.length}<span/>
+            <span className="element__like-count" />{props.card.likes.length}<span />
           </div>
         </div>
       </div>

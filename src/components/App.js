@@ -13,29 +13,30 @@ import ConfirmationPopup from "./ConfirmationPopup.js"
 
 function App() {
 
-  const[isEditProfilePopupOpen, setEditProfilePopupOpen]=useState(false)
-  const[isAddPlacePopupOpen, setAddPlacePopupOpen]=useState(false)
-  const[isEditAvatarPopupOpen, setEditAvatarPopupOpen]=useState(false)
-  const[isConfirmationPopupOpen, setConfirmationPopupOpen]=useState(false)
-  const[isLoading, setLoading] = useState(false)
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
+  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false)
+  const [isLoading, setLoading] = useState(false)
 
   const [isDeletedCard, setDeletedCard] = useState({})
 
 
-  const[selectedCard, setSelectedCard]=useState({})
-  const[cards, setCards] = useState([])
-  const[currentUser, setCurrentUser]=useState({})
+  const [selectedCard, setSelectedCard] = useState({})
+  const [cards, setCards] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
 
 
   useEffect(() => {
     api
       .getProfileFromServer()
-      .then( res => {
+      .then(res => {
         setCurrentUser(res)
       })
       .catch(err => {
-        console.error(`Error:${err} - ${err.statusText}`)})
+        console.error(`Error:${err} - ${err.statusText}`)
+      })
 
     api
       .getCardsFromServer()
@@ -43,41 +44,36 @@ function App() {
         setCards(cardsData);
       })
       .catch(err => {
-        console.error(`Error:${err} - ${err.statusText}`)})
-    }, []);
+        console.error(`Error:${err} - ${err.statusText}`)
+      })
+  }, []);
 
 
-  function handleEditAvatarClick (){
-      setEditAvatarPopupOpen(true)
-    }
+  function handleEditAvatarClick() {
+    setEditAvatarPopupOpen(true)
+  }
 
-  function handleEditProfileClick (){
-      setEditProfilePopupOpen(true)
-    }
+  function handleEditProfileClick() {
+    setEditProfilePopupOpen(true)
+  }
 
-  function handleAddPlaceClick (){
-      setAddPlacePopupOpen(true)
-    }
+  function handleAddPlaceClick() {
+    setAddPlacePopupOpen(true)
+  }
 
-  function handleCardClick(card){
-      setSelectedCard(card)
-    }
+  function handleCardClick(card) {
+    setSelectedCard(card)
+  }
 
-  function handleConfirmationClick(){
-    setConfirmationPopupOpen(true)
-    }
+  function closeAllPopups() {
+    setEditProfilePopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setEditAvatarPopupOpen(false);
+    setSelectedCard({});
+    setConfirmationPopupOpen(false)
 
-
-
-  function closeAllPopups (){
-      setEditProfilePopupOpen(false);
-      setAddPlacePopupOpen(false);
-      setEditAvatarPopupOpen(false);
-      setSelectedCard({});
-      setConfirmationPopupOpen(false)
-
-      setDeletedCard({})
-    }
+    setDeletedCard({})
+  }
 
   function handleCardDelete(card) {
     setLoading(true)
@@ -88,7 +84,7 @@ function App() {
         closeAllPopups()
       })
       .catch((error) => console.log(`Ошибка: ${error}`))
-      .finally(() => {setLoading(false)})
+      .finally(() => { setLoading(false) })
   }
 
   function handleCardLike(card, isLiked) {
@@ -112,7 +108,7 @@ function App() {
         closeAllPopups()
       })
       .catch((error) => console.log(`Ошибка: ${error}`))
-      .finally(() => {setLoading(false)})
+      .finally(() => { setLoading(false) })
 
   }
 
@@ -125,7 +121,7 @@ function App() {
         closeAllPopups()
       })
       .catch((error) => console.log(`Ошибка: ${error}`))
-      .finally(() => {setLoading(false)})
+      .finally(() => { setLoading(false) })
 
   }
 
@@ -138,7 +134,7 @@ function App() {
         closeAllPopups()
       })
       .catch((error) => console.log(`Ошибка: ${error}`))
-      .finally(() => {setLoading(false)})
+      .finally(() => { setLoading(false) })
   }
 
   return (
@@ -152,7 +148,6 @@ function App() {
             onEditAvatar={handleEditAvatarClick}
             onCardClick={handleCardClick}
             onCardLike={handleCardLike}
-            // onCardDelete={handleCardDelete}
             onCardDelete={setDeletedCard}
             onConfirmation={setConfirmationPopupOpen}
             cards={cards}
@@ -180,7 +175,7 @@ function App() {
             onCardDelete={handleCardDelete}
             // cards={cards}
             card={isDeletedCard}
-            />
+          />
           <ImagePopup
             onClose={closeAllPopups}
             card={selectedCard}></ImagePopup>
