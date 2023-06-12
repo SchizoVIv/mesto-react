@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import PopupWithForm from "./PopupWithForm.js"
 
 export default function EditAvatarPopup(props) {
@@ -21,27 +21,27 @@ export default function EditAvatarPopup(props) {
     return avatarRef.current.value
   }
 
-  return(
+  return (
     <PopupWithForm
-            name="edit-avatar"
-            title="Обновить аватар"
-            id="popapAvatar"
-            close={props.onClose}
-            isOpen={props.isOpen}
-            onSubmit={handleSubmit}
-            btnName={props.onLoading ? `Сохранение...` : `Сохранить`}
-            >
-              <input
-                className="popup__field popup__field_link-avatar"
-                id="ignputAvatar"
-                name="avatar"
-                type="url"
-                pattern="https://.*"
-                placeholder="Введите ссылку URL"
-                required
-                ref={avatarRef}
-                onChange={handleChangeAvatar} />
-              <span className="popup__input-error popup__input-error_type_ignputAvatar" />
-          </PopupWithForm>
+      name="edit-avatar"
+      title="Обновить аватар"
+      id="popapAvatar"
+      close={props.onClose}
+      isOpen={props.isOpen}
+      onSubmit={handleSubmit}
+      btnName={props.onLoading ? `Сохранение...` : `Сохранить`}
+    >
+      <input
+        className="popup__field popup__field_link-avatar"
+        id="ignputAvatar"
+        name="avatar"
+        type="url"
+        pattern="https://.*"
+        placeholder="Введите ссылку URL"
+        required
+        ref={avatarRef}
+        onChange={handleChangeAvatar} />
+      <span className="popup__input-error popup__input-error_type_ignputAvatar" />
+    </PopupWithForm>
   )
 }

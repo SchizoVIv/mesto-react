@@ -1,12 +1,12 @@
 import PopupWithForm from "./PopupWithForm.js";
 
-export default function ConfirmationPopup(props){
-  function handleSubmit(e){
+export default function ConfirmationPopup(props) {
+  function handleSubmit(e) {
     e.preventDefault()
     props.onCardDelete(props.card)
   }
 
-  return(
+  return (
     <PopupWithForm
       name="question"
       title="Вы уверены?"
