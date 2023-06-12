@@ -26,37 +26,37 @@ export default function AddPlacePopup(props) {
     setPlaceLink(e.target.value)
   }
 
-  return(
+  return (
     <PopupWithForm
-            name="cards"
-            title="Новое место"
-            id="popapContentCards"
-            close={props.onClose}
-            isOpen={props.isOpen}
-            onSubmit={handleSubmit}
-            btnName={props.onLoading ? `Создание...` : `Cоздать`}
-            >
-              <input
-                className="popup__field popup__field_name-card"
-                type="text"
-                name="title"
-                id="inputNameСard"
-                placeholder="Название"
-                minLength={2}
-                maxLength={30}
-                required
-                onChange={handleChangePlaceName}/>
-              <span className="popup__input-error popup__input-error_type_inputNameСard" />
-              <input
-                className="popup__field popup__field_link-card"
-                type="url"
-                pattern="https://.*"
-                name="link"
-                id="inputAboutСard"
-                placeholder="Ссылка на картинку"
-                required
-                onChange={handleChangePlaceLink} />
-              <span className="popup__input-error popup__input-error_type_inputAboutСard" />
-          </PopupWithForm>
+      name="cards"
+      title="Новое место"
+      id="popapContentCards"
+      close={props.onClose}
+      isOpen={props.isOpen}
+      onSubmit={handleSubmit}
+      btnName={props.onLoading ? `Создание...` : `Cоздать`}
+    >
+      <input
+        className="popup__field popup__field_name-card"
+        type="text"
+        name="title"
+        id="inputNameСard"
+        placeholder="Название"
+        minLength={2}
+        maxLength={30}
+        required
+        onChange={handleChangePlaceName} />
+      <span className="popup__input-error popup__input-error_type_inputNameСard" />
+      <input
+        className="popup__field popup__field_link-card"
+        type="url"
+        pattern="https://.*"
+        name="link"
+        id="inputAboutСard"
+        placeholder="Ссылка на картинку"
+        required
+        onChange={handleChangePlaceLink} />
+      <span className="popup__input-error popup__input-error_type_inputAboutСard" />
+    </PopupWithForm>
   )
 }
