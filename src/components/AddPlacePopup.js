@@ -44,6 +44,7 @@ export default function AddPlacePopup(props) {
         placeholder="Название"
         minLength={2}
         maxLength={30}
+        value={placeName || ""}
         required
         onChange={handleChangePlaceName} />
       <span className="popup__input-error popup__input-error_type_inputNameСard" />
@@ -54,6 +55,7 @@ export default function AddPlacePopup(props) {
         name="link"
         id="inputAboutСard"
         placeholder="Ссылка на картинку"
+        value={placeLink || ""}
         required
         onChange={handleChangePlaceLink} />
       <span className="popup__input-error popup__input-error_type_inputAboutСard" />

@@ -17,7 +17,6 @@ class Api {
       headers: this._headers
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   getCardsFromServer() {
@@ -26,7 +25,6 @@ class Api {
       headers: this._headers
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   editProfile(userData) {
@@ -39,7 +37,6 @@ class Api {
       })
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   addCard(cardData) {
@@ -49,7 +46,6 @@ class Api {
       body: JSON.stringify(cardData)
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   removeCard(cardId) {
@@ -58,7 +54,6 @@ class Api {
       headers: this._headers,
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   addLike(cardId) {
@@ -67,7 +62,6 @@ class Api {
       headers: this._headers,
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   removeLike(cardId) {
@@ -76,7 +70,6 @@ class Api {
       headers: this._headers,
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 
   updateUserAvatar(data) {
@@ -88,7 +81,6 @@ class Api {
       }),
     })
       .then(res => this._getResponseData(res))
-      .catch(console.log)
   }
 }
 
