@@ -25,7 +25,7 @@ export default function Card(props) {
   return (
     <li
       className="element"
-      // key={props.card._id}
+      key={props.card._id}
       data-card-id={props.card._id}
     >
       <div name="elementCard" action="">
