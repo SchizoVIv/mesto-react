@@ -27,7 +27,7 @@ export default function EditProfilePopup(props) {
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [props.isOpen,currentUser]);
+  }, [currentUser]);
 
 
   return (
@@ -48,7 +48,6 @@ export default function EditProfilePopup(props) {
         placeholder="Имя"
         minLength={2}
         maxLength={40}
-        value={name || ''}
         required
         onChange={handleChangeName} />
       <span className="popup__input-error popup__input-error_type_inputName"></span>
@@ -60,7 +59,6 @@ export default function EditProfilePopup(props) {
         placeholder="Род деятельности"
         minLength={2}
         maxLength={200}
-        value={description || ''}
         required
         onChange={handleChangeDescription} />
       <span className="popup__input-error popup__input-error_type_inputAbout" />
