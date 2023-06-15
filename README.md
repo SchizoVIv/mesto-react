@@ -1,7 +1,7 @@
 # Проект: Место
 
 ### Учебный проект от Яндекс Практикума
-https://schizoviv.github.io/mesto/
+https://schizoviv.github.io/mesto-react/
 --------
 ### __Описание__
 
